@@ -19,6 +19,4 @@ lolcat:
         view_live_html: VIEW DIS newsletter LIV <BR/><EM>(OPENS IN NEW WINDOW)</EM>
         edit: EDIT DIS newsletter
         delete: REMOOV DIS newsletter FOREVR
-  newsletters:
-    show:
-      other: OTHR Newsletters
+        send: SEND DIS newsletter

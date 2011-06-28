@@ -15,6 +15,3 @@ nb:
         view_live_html: Vis hvordan denne newsletter ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
         edit: Rediger denne newsletter
         delete: Fjern denne newsletter permanent
-  newsletters:
-    show:
-      other: Andre Newsletters

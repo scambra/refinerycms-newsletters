@@ -15,6 +15,3 @@ nl:
         view_live_html: Bekijk deze newsletter op de website <br/><em>(opent een nieuw venster)</em>
         edit: Bewerk deze newsletter
         delete: Verwijder deze newsletter voor eeuwig
-  newsletters:
-    show:
-      other: Andere Newsletters

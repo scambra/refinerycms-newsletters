@@ -1,0 +1,22 @@
+es:
+  shared:
+    admin:
+      image_picker:
+        image: imagen
+  plugins:
+    newsletters:
+      title: Boletines
+  admin:
+    newsletters:
+      index:
+        title: Boletines
+        create_new: Añadir nuevo boletín
+        reorder: Reordenar boletines
+        reorder_done: Reordenación de boletines completada
+        sorry_no_results: ¡Lo siento! No se encontraron resultados.
+        no_items_yet: Aún no hay boletines. Haz click en "Añadir nuevo boletín" para añadir el primero.
+      newsletter:
+        view_live_html: Ver este boletín <br/><em>(lo abre en ventana nueva)</em>
+        edit: Editar este boletín
+        delete: Borrar este boletín para siempre
+        send: Enviar este boletín

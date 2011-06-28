@@ -1,17 +1,29 @@
 require 'refinery'
 module Refinery
   module Newsletters
+    autoload 'SendNewsletter', 'newsletters/send_newsletter'
 
     class Engine < Rails::Engine
       initializer "static assets" do |app|
         app.middleware.insert_after ::ActionDispatch::Static, ::ActionDispatch::Static, "#{root}/public"
       end
 
-      initializer 'newsletter.helper' do |app|
-        ActionView::Base.send :include, NewsletterHelper
-        ActionController::Base.send :include, NewsletterHelper
+      config.to_prepare do
+        User.class_eval do
+          devise :confirmable
+          attr_accessible :confirmed_at
+          scope :suscripted, where(User.arel_table[:confirmed_at].not_eq(nil)).where(:newsletter_subscribe => true) if User.arel_table[:confirmed_at]
+          before_validation :skip_confirmation!, :unless => :confirmation_enabled?
+          
+          def enable_confirmation!
+            @confirmation_enabled = true
+          end
+          def confirmation_enabled?
+            @confirmation_enabled
+          end
+        end
       end
-
+      
       config.after_initialize do
         Refinery::Plugin.register do |plugin|
           plugin.name = "newsletters"

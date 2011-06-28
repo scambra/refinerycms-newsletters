@@ -10,8 +10,8 @@
   </div>
   
   <div class='field'>
-    <%= f.label :email_from -%>
-    <%= f.text_field :email_from -%>
+    <%= f.label :template -%>
+    <%= f.select :template, RefinerySetting.find_or_set(:templates, %w(newsletter), :scoping => 'newsletters') -%>
   </div>
   
   <div class='field'>
@@ -33,18 +33,7 @@
       </div>
     </div>
   </div>
-    <div class="field">
-      <label>Subscribers</label>
-      <select name="subscribers" id="subscribers_emails" multiple="multiple" size="10" style="width:960px; font-size:medium;" disabled="true">
-      <% get_subscribers.each do |e| %>
-            <option value="<%= e.email %>"><%= e.email %></option>
-      <% end %>
-          </select>
-    </div>
-
-    <div class="field">
-      By clicking Save the current newsletter will be sent to subscribers, this could take some time, please be patience.
-      </div>
+  
   <%= render :partial => "/shared/admin/form_actions",
               :locals => {
                 :f => f,
