@@ -6,7 +6,7 @@
 
   <span class='actions' style="width:270px">
     <% if newsletter.status == 'sent' %>
-      <%= t('.emails_sent', :count => newsletter.emails_sent, :date => l(newsletter.updated_at.to_datetime)) %>
+      <%= t('.emails_sent', :count => newsletter.emails_sent, :date => l(newsletter.updated_at.to_date)) %>
     <% elsif newsletter.status == 'sending' %>
       <%= t('.sending') %>
     <% end %>
