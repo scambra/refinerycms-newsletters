@@ -12,4 +12,25 @@ class Newsletter < ActiveRecord::Base
   def number
     self[:number] || self.class.last_number(template) + 1
   end
+
+  def send_to_all
+    self.emails_sent = 0
+
+    get_subscribers.each do |user|
+      begin
+        NewsletterMailer.newsletter_email(user.email, self).deliver
+        self.emails_sent += 1
+      rescue
+        logger.warn "There was an error delivering an newsletter .\n#{$!}\n"
+      end
+    end
+    
+    self.status = 'sent'
+    self.save
+  end
+  
+  private
+  def get_subscribers
+    User.subscribed
+  end
 end

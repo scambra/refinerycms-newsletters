@@ -6,7 +6,7 @@
 
   <span class='actions' style="width:270px">
     <% if newsletter.status == 'sent' %>
-      <%= newsletter.emails_sent %> emails sent at <%= newsletter.updated_at.strftime("%d/%m/%Y")%>
+      <%= t('.emails_sent', :count => newsletter.emails_sent, :date => l(newsletter.updated_at.to_datetime)) %>
     <% elsif newsletter.status == 'sending' %>
       <%= t('.sending') %>
     <% end %>
@@ -14,7 +14,7 @@
         :title => t('.view_live_html'),
         :target => "_blank" %>
     <%= link_to refinery_icon_tag("email_go.png"), send_admin_newsletter_path(newsletter, :dialog => true, :width => 725, :height => 275),
-         :title => t('.send') unless newsletter.emails_sent.present? %>
+         :title => t('.send') unless newsletter.status == 'sent' %>
     <%= link_to refinery_icon_tag("application_edit.png"), edit_admin_newsletter_path(newsletter),
          :title => t('.edit') %>
     <%= link_to refinery_icon_tag("delete.png"), admin_newsletter_path(newsletter),

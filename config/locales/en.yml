@@ -21,6 +21,16 @@ en:
         delete: Remove this newsletter forever
         send: Send this newsletter
         sending: Sending
+        emails_sent:
+          one: 1 email sent at %{date}
+          other: %{count} emails sent at %{date}
+      index:
+        subscribed:
+          one: 1 user subscribed to newsletters
+          ohter: %{count} users subscribed to newsletters
+        unsubscribed:
+          one: 1 user decided to unsubscribe
+          ohter: %{count} users decided to unsubscribe
       send_newsletter:
         email: Email
         email_help: Put an email address to try sending the newsletter

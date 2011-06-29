@@ -49,7 +49,10 @@
   </ul>
 
   <p>
-    <%= User.where(:newsletter_subscribe => true).count %> users subscribed to newsletters <br /> <%= Newsletter.sum(:unsubscribed) %> decided to unsubscribe
+    <%= t('.subscribed', :count => User.suscribed.count) %>
+    <%= User.suscripted.count %> users subscribed to newsletters
+    <br />
+    <%= t('.unsubscribed', :count => Newsletter.sum(:unsubscribed)) %>
   </p>
 
 </div>

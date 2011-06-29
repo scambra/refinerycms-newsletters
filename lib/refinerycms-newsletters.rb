@@ -1,7 +1,6 @@
 require 'refinery'
 module Refinery
   module Newsletters
-    autoload 'SendNewsletter', 'newsletters/send_newsletter'
 
     class Engine < Rails::Engine
       initializer "static assets" do |app|
@@ -12,7 +11,7 @@ module Refinery
         User.class_eval do
           devise :confirmable
           attr_accessible :confirmed_at
-          scope :suscripted, where(User.arel_table[:confirmed_at].not_eq(nil)).where(:newsletter_subscribe => true) if User.arel_table[:confirmed_at]
+          scope :subscribed, where(User.arel_table[:confirmed_at].not_eq(nil)).where(:newsletter_subscribe => true) if User.arel_table[:confirmed_at]
           before_validation :skip_confirmation!, :unless => :confirmation_enabled?
           
           def enable_confirmation!
