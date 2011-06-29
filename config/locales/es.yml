@@ -27,10 +27,10 @@ es:
       index:
         subscribed:
           one: 1 usuario suscrito a los boletines
-          ohter: %{count} usuarios suscritos a los boletines
+          other: %{count} usuarios suscritos a los boletines
         unsubscribed:
           one: 1 usuario decidió desuscribirse
-          ohter: %{count} usuarios decidieron desuscribirse
+          other: %{count} usuarios decidieron desuscribirse
       send_newsletter:
         email: Correo electrónico
         email_help: Escribe una dirección de correo electrónico para enviar una prueba
