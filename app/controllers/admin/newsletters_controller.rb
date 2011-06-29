@@ -11,7 +11,7 @@ module Admin
           @newsletter.update_attribute :status, 'sending'
           # this actually should be a delayed job, but as far as client do not expect a huge amount of subscribers
           # and don't want to pay additional cost for Worker on Heroku we will leave it like this for now
-          send_newsletter(@newsletter)
+          send_to_all(@newsletter)
         end
         unless from_dialog?
           redirect_to :action => 'index'

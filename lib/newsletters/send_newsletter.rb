@@ -5,7 +5,7 @@ module Refinery::Newsletters
       User.suscripted
     end
 
-    def send_newsletter(newsletter)
+    def send_to_all(newsletter)
       number_of_sent_email = 0
 
       get_subscribers.each do |user|
