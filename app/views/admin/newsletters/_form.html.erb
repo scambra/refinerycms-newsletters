@@ -19,7 +19,7 @@
       <ul id='page_parts'>
         <% [:email_body].each_with_index do |part, part_index| %>
           <li class='ui-state-default<%= ' ui-state-active' if part_index == 0 %>'>
-            <%= link_to part.to_s.titleize, "##{part}" %>
+            <%= link_to f.object.class.human_attribute_name(part, :default => part.to_s.titleize), "##{part}" %>
           </li>
         <% end %>
       </ul>

@@ -8,6 +8,7 @@ class CreateNewsletters < ActiveRecord::Migration
       t.integer :emails_sent
       t.integer :unsubscribed
       t.integer :number
+      t.string :status
 
       t.timestamps
     end

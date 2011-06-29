@@ -20,3 +20,16 @@ es:
         edit: Editar este boletín
         delete: Borrar este boletín para siempre
         send: Enviar este boletín
+        sending: Enviando
+      send_newsletter:
+        email: Correo electrónico
+        email_help: Escribe una dirección de correo electrónico para enviar una prueba
+        send: Enviar
+  activerecord:
+    model:
+      newsletter: boletín
+    attributes:
+      newsletter:
+        title: Asunto
+        email_body: Contenido
+        template: Plantilla

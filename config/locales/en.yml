@@ -20,3 +20,8 @@ en:
         edit: Edit this newsletter
         delete: Remove this newsletter forever
         send: Send this newsletter
+        sending: Sending
+      send_newsletter:
+        email: Email
+        email_help: Put an email address to try sending the newsletter
+        send: Send

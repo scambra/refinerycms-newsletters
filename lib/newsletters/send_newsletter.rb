@@ -10,7 +10,7 @@ module Refinery::Newsletters
 
       get_subscribers.each do |user|
         begin
-          NewsletterMailer.newsletter_email(user, newsletter).deliver
+          NewsletterMailer.newsletter_email(user.email, newsletter).deliver
           number_of_sent_email = number_of_sent_email + 1
         rescue
           logger.warn "There was an error delivering an newsletter .\n#{$!}\n"
@@ -19,6 +19,7 @@ module Refinery::Newsletters
       
       n = Newsletter.find(newsletter)
       n.emails_sent = number_of_sent_email
+      n.status = 'sent'
       n.save
     end
   end

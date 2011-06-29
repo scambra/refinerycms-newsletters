@@ -6,7 +6,7 @@ class Newsletter < ActiveRecord::Base
   validates :template, :email_body, :presence => true
   
   def self.last_number(template)
-    self.where(:template => template).order(:number).last.try(:number) || 0
+    self.where(:template => template).where(self.arel_table[:number].not_eq(nil)).order(:number).last.try(:number) || 0
   end
   
   def number
