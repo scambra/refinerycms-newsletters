@@ -49,8 +49,7 @@
   </ul>
 
   <p>
-    <%= t('.subscribed', :count => User.suscribed.count) %>
-    <%= User.suscripted.count %> users subscribed to newsletters
+    <%= t('.subscribed', :count => User.subscribed.count) %>
     <br />
     <%= t('.unsubscribed', :count => Newsletter.sum(:unsubscribed)) %>
   </p>
