@@ -1,15 +1,16 @@
 <li class='clearfix record <%= cycle("on", "on-hover") %>' id="<%= dom_id(newsletter) -%>">
   <span class='title'>
     <%= newsletter.title %>
-    <span class="preview">&nbsp;</span>
-  </span>
-
-  <span class='actions' style="width:270px">
+    <span class="preview">
     <% if newsletter.sent? %>
       <%= t('.emails_sent', :count => newsletter.emails_sent, :date => l(newsletter.updated_at.to_date)) %>
     <% elsif newsletter.sending? %>
       <%= t('.sending') %>
     <% end %>
+    </span>
+  </span>
+
+  <span class='actions' style="width:270px">
     <%= link_to refinery_icon_tag("application_go.png"), newsletter_url(newsletter),
         :title => t('.view_live_html'),
         :target => "_blank" %>
