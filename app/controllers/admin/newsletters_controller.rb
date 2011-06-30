@@ -7,9 +7,8 @@ module Admin
       if request.post?
         if params[:email].present?
           NewsletterMailer.newsletter_email(params[:email], @newsletter).deliver
-        elsif @newsletter.status.nil?
-          @newsletter.update_attribute :status, 'sending'
-          @newsletter.send_to_all
+        elsif !@newsletter.sending?
+          @newsletter.send!
         end
         unless from_dialog?
           redirect_to :action => 'index'

@@ -1,5 +1,5 @@
 <%= form_for [:admin, @newsletter], :url => send_admin_newsletter_path(@newsletter), :html => {:method => :post} do |f| -%>
-  <%= content_tag :p, flash[:error] || '&nbsp;'.html_safe %>
+  <%= content_tag :p, @newsletter.sending? ? t('.newsletter_is_sending') : '&nbsp;'.html_safe %>
   
   <div class='field'>
     <span class="label_with_help">

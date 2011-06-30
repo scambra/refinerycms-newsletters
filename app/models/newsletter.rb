@@ -13,6 +13,26 @@ class Newsletter < ActiveRecord::Base
     self[:number] || self.class.last_number(template) + 1
   end
 
+  def send!
+    self[:number] ||= self.number
+    self.status = 'sending'
+    self.save
+    send_to_all
+  end
+  
+  def sending?
+    self.status == 'sending'
+  end
+  
+  def sent?
+    self.status == 'sent'
+  end
+  
+  private
+  def get_subscribers
+    User.subscribed
+  end
+  
   def send_to_all
     self.emails_sent = 0
 
@@ -27,10 +47,5 @@ class Newsletter < ActiveRecord::Base
     
     self.status = 'sent'
     self.save
-  end
-  
-  private
-  def get_subscribers
-    User.subscribed
   end
 end

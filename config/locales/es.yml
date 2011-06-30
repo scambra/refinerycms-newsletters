@@ -34,6 +34,7 @@ es:
         email: Correo electrónico
         email_help: Escribe una dirección de correo electrónico para enviar una prueba
         send: Enviar
+        newsletter_is_sending: El boletín se está enviando. Solo se pueden enviar pruebas.
   activerecord:
     model:
       newsletter: boletín

@@ -5,16 +5,16 @@
   </span>
 
   <span class='actions' style="width:270px">
-    <% if newsletter.status == 'sent' %>
+    <% if newsletter.sent? %>
       <%= t('.emails_sent', :count => newsletter.emails_sent, :date => l(newsletter.updated_at.to_date)) %>
-    <% elsif newsletter.status == 'sending' %>
+    <% elsif newsletter.sending? %>
       <%= t('.sending') %>
     <% end %>
     <%= link_to refinery_icon_tag("application_go.png"), newsletter_url(newsletter),
         :title => t('.view_live_html'),
         :target => "_blank" %>
     <%= link_to refinery_icon_tag("email_go.png"), send_admin_newsletter_path(newsletter, :dialog => true, :width => 725, :height => 275),
-         :title => t('.send') unless newsletter.status == 'sent' %>
+         :title => t('.send') %>
     <%= link_to refinery_icon_tag("application_edit.png"), edit_admin_newsletter_path(newsletter),
          :title => t('.edit') %>
     <%= link_to refinery_icon_tag("delete.png"), admin_newsletter_path(newsletter),

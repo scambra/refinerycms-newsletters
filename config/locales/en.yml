@@ -34,3 +34,4 @@ en:
         email: Email
         email_help: Put an email address to try sending the newsletter
         send: Send
+        newsletter_is_sending: Newsletter is being sent. You can only sent tests.
